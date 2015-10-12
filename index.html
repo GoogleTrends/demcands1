@@ -215,31 +215,14 @@ a:hover{
                     .transition()
                     .duration(100)
                     .style("fill", function(d,i){
-                        if (thisCandidate == "candidate0"){
 
-                            return candidates[0].color;
-                          
-                        } else if (thisCandidate == "candidate1"){
-
-                            
-                            return candidates[1].color;
-
-                        } else if (thisCandidate == "candidate2"){
-
-                            return candidates[2].color;
-
-                        } else if (thisCandidate == "candidate3"){
-
-                             return candidates[3].color;
-
-                        } else if (thisCandidate == "candidate4"){
-
-                            return candidates[4].color;
-
-                        } else {
-
-                           return candidates[5].color;
+                        var x = 0; 
+                        for (x = 0; x <= 5; x ++ ){
+                            if (thisCandidate == "candidate" + x){
+                                return candidates[x].color;
+                            }                             
                         }
+
                     });
 
 
@@ -252,49 +235,19 @@ a:hover{
                     .attr("xlink:href", function(d, i) { return "#group" + i; })
                     .text(function(d, i, j) {
 
-                       if (thisCandidate == "candidate0"){
+                        var y = 0; 
 
-                         if (rank[i][0] === 0){
-                                return candidates[i].name;
-                            } else {
-                            return rank[i][0] + "." + candidates[i].name;}
-                          
-                        } else if (thisCandidate == "candidate1"){
+                        for (y = 0; y <= 5; y ++ ){
+                            
+                            if (thisCandidate == "candidate" + y){
 
-                            if (rank[i][1] === 0){
-                                return candidates[i].name;
-                            } else {
-                            return rank[i][1] + "." + candidates[i].name;}
-
-                        } else if (thisCandidate == "candidate2"){
-
-                             if (rank[i][2] === 0){
-                                return candidates[i].name;
-                            } else {
-                            return rank[i][2] + "." + candidates[i].name;}
-
-                        } else if (thisCandidate == "candidate3"){
-
-                             if (rank[i][3] === 0){
-                                return candidates[i].name;
-                            } else {
-                            return rank[i][3] + "." + candidates[i].name;}
-
-                        } else if (thisCandidate == "candidate4"){
-
-                             if (rank[i][4] === 0){
-                                return candidates[i].name;
-                            } else {
-                            return rank[i][4] + "." + candidates[i].name;}
-
-                        } else {
-
-                            if (rank[i][5] === 0){
-                                return candidates[i].name;
-                            } else {
-                            return rank[i][5] + "." + candidates[i].name;}
-                        }
-
+                                if (rank[i][y] === 0){
+                                    return candidates[i].name;
+                                } else {
+                                    return rank[i][y] + "." + candidates[i].name;}
+                                }
+                                
+                            }     
 
                     })       
                     .style("fill", function(d, i) { return candidates[i].color; });
